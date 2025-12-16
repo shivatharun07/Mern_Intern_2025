@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+   
+    <header class="bg-white p-6 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <img src="image.jpg" alt="" class="w-12 h-8">
+            <h1 class="text-2xl font-bold text-gray-900">LMSUI</h1>
+        </div>
+        
+        <nav class="flex space-x-6">
+            <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">About</a>
+        </nav>
+    </header>
+
+    <main class="flex-1 flex items-center justify-center p-8 bg-blue-50">
+        <div class="bg-white p-12 rounded-lg shadow-lg max-w-md w-full flex flex-col items-center space-y-6">
+            <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center">
+                <span class="text-3xl text-white">★</span>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-900 text-center">DEMO CLASS</h2>
+            <p class="text-gray-600 text-center">Tailwind classes</p>
+            <button class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold w-full flex items-center justify-center">
+                Get Started
+            </button>
+        </div>
+    </main>
+
+    
+    <footer class="bg-gray-800 text-white p-6 flex justify-center">
+        <p>&copy; RAMPeX 2025</p>
+    </footer>
+
+</body>
+</html>

@@ -69,6 +69,13 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.get('/getallsignup',async(req,res)=>{
+  const signup = Signup.find();
+  console.log(signup);
+  res.send("Data Fetched")
+
+})
+
 app.get("/json", (req, res) => {
   res.json({
     College: "Sece",

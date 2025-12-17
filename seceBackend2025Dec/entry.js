@@ -70,7 +70,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.get('/getallsignup',async(req,res)=>{
-  const signup = Signup.find();
+  const signup = await Signup.find();
   console.log(signup);
   res.send("Data Fetched")
 

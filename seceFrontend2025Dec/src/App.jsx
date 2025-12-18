@@ -15,24 +15,26 @@ import UseMemo from "./components/functionalCompnents/Hooks/UseMemo";
 import UseCallback from "./components/functionalCompnents/Hooks/UseCallback";
 function App() {
   return (
-    <header>
+    <div className="app">
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/about" element={<About />}/>
-          <Route path="/use-state" element={<UseState />}/>
-          <Route path="/use-effect" element={<UseEffect />} />
-          <Route path="/use-effect-api" element={<UseEffectAPI />} />
-          <Route path="/use-ref" element={<UseRef />} />
-          <Route path="/use-memo" element={<UseMemo />} />
-          <Route path="/use-callback" element={<UseCallback />}/>
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/use-state" element={<UseState />} />
+            <Route path="/use-effect" element={<UseEffect />} />
+            <Route path="/use-effect-api" element={<UseEffectAPI />} />
+            <Route path="/use-ref" element={<UseRef />} />
+            <Route path="/use-memo" element={<UseMemo />} />
+            <Route path="/use-callback" element={<UseCallback />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </main>
       </BrowserRouter>
-    </header>
+    </div>
   );
 }
 

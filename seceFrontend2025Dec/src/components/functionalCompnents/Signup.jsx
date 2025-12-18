@@ -12,7 +12,7 @@ const Signup = () => {
     event.preventDefault();
 
     try {
-      const req = await axios.post("https://mern-intern-2025.onrender.com/signup", {
+      const req = await axios.post(`${process.env.REACT_APP_API_URL}/signup`, {
         email,
         username,
         password,

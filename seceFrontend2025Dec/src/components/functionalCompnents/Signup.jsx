@@ -12,7 +12,7 @@ const Signup = () => {
     event.preventDefault();
 
     try {
-      const req = await axios.post(`${process.env.REACT_APP_API_URL}/signup`, {
+      const req = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
         email,
         username,
         password,

@@ -8,43 +8,35 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
-    event.preventDefault();
-    console.log('Login attempt with:', { email });
-    console.log('API URL:', import.meta.env.VITE_API_URL);
+  event.preventDefault();
+  console.log('Login attempt with:', { email });
+  console.log('API URL:', import.meta.env.VITE_API_URL);
 
-    try {
-      const req = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
-        email,
-        password,
-      });
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
+      email,
+      password,
+    });
 
-      const { message, isLoggedIn } = req.data;
+    const { message, isLoggedIn, token } = response.data;
 
-      if (isLoggedIn) {
-        localStorage.setItem("isLogin", "true");
-        alert(message);
-        navigate("/");
-      }
-    } catch (e) {
-      console.error('Login error:', e);
-      if (e.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        console.error('Response data:', e.response.data);
-        console.error('Response status:', e.response.status);
-        console.error('Response headers:', e.response.headers);
-        alert(`Login Failed: ${e.response.data?.message || e.message}`);
-      } else if (e.request) {
-        // The request was made but no response was received
-        console.error('No response received:', e.request);
-        alert('Login Failed: No response from server. Please check your connection.');
-      } else {
-        // Something happened in setting up the request
-        console.error('Request setup error:', e.message);
-        alert(`Login Failed: ${e.message}`);
-      }
+    if (isLoggedIn) {
+      localStorage.setItem("token", token);
+      localStorage.setItem("isLoggedIn", "true");
+      alert(message);
+      navigate("/");
+    } else {
+      throw new Error("Login failed: Invalid response from server");
     }
-  };
+  } catch (e) {
+    console.error('Login error:', e);
+    if (e.response) {
+      alert(`Login Failed: ${e.response.data?.message || e.message}`);
+    } else {
+      alert(`Login Failed: ${e.message}`);
+    }
+  }
+};
 
   return (
     <div>

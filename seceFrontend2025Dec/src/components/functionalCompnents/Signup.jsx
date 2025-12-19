@@ -9,25 +9,27 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleSignup = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    try {
-      const req = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
-        email,
-        username,
-        password,
-      });
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
+      email,
+      username,
+      password,
+    });
 
-      const { message, isSignup } = req.data;
+    const { message, isSignup } = response.data;
 
-      if (isSignup) {
-        alert(message);
-        navigate("/login");
-      }
-    } catch (e) {
-      alert(`Signup Failed: ${e.response?.data?.message || e.message}`);
+    if (isSignup) {
+      alert(message);
+      navigate("/login");
+    } else {
+      throw new Error("Signup failed: Invalid response from server");
     }
-  };
+  } catch (e) {
+    alert(`Signup Failed: ${e.response?.data?.message || e.message}`);
+  }
+};
 
   return (
     <div>
